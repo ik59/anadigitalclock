@@ -1,0 +1,353 @@
+*,
+::after,
+::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+body {
+  background-color: #000;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.clock-wrapper {
+  padding: 50px;
+  width: 950px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.clock {
+  width: 400px;
+  height: 400px;
+  background-color: #fff;
+  border-radius: 50%;
+  border: 20px solid rgb(245, 244, 244);
+  box-shadow: inset 0px 0px 20px 0px rgb(190, 185, 185);
+  position: relative;
+}
+
+.clock::before {
+  content: "";
+  position: absolute;
+  background-color: rgb(255, 255, 255);
+  border: 5px solid crimson;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: rgb(0 0 0 / 48%) 3px 0px 5px 1px;
+  z-index: 99;
+}
+
+.clock .hand {
+  --rotation: 0;
+  position: absolute;
+  width: 10px;
+  height: 25%;
+  bottom: 50%;
+  left: 50%;
+  background-color: rgb(0, 255, 0);
+  transform: translateX(-50%) rotate(calc(var(--rotation) * 1deg));
+  border: 2px solid rgb(0, 255, 0);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  transform-origin: bottom;
+  box-shadow: 2px 0px 2px 1px rgb(88 80 80 / 24%);
+  z-index: 1;
+}
+
+.clock .minute {
+  width: 7px;
+  height: 40%;
+  z-index: 2;
+  background-color: rgb(15, 15, 15);
+  border-color: rgb(15, 15, 15);
+  box-shadow: rgb(0 0 0 / 48%) 2px 0px 3px 1px;
+}
+
+.clock .second {
+  width: 1px;
+  border: 1px solid crimson;
+  border-top-left-radius: 100%;
+  border-top-right-radius: 100%;
+  background-color: crimson;
+  height: 50%;
+  top: 10%;
+  transform-origin: 50% 80%;
+  box-shadow: rgb(0 0 0 / 48%) 3px 0px 5px 1px;
+  z-index: 3;
+}
+
+.clock .number {
+  --rotation: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-size: 22px;
+  font-family: cursive;
+  color: #000;
+  padding-top: 10px;
+  transform: rotate(var(--rotation));
+  text-shadow: 0px 0px 3px #000;
+}
+
+.clock .number1 {
+  --rotation: 30deg;
+}
+.clock .number2 {
+  --rotation: 60deg;
+}
+.clock .number3 {
+  --rotation: 90deg;
+  top: 91.6%;
+  left: 93%;
+  transform: translate(-50%, -50%);
+}
+.clock .number4 {
+  --rotation: 120deg;
+}
+.clock .number5 {
+  --rotation: 150deg;
+}
+.clock .number6 {
+  --rotation: 180deg;
+  top: 84%;
+  transform: rotateX(0deg);
+}
+.clock .number7 {
+  --rotation: 210deg;
+}
+.clock .number8 {
+  --rotation: 240deg;
+}
+.clock .number9 {
+  --rotation: 270deg;
+  top: 91.6%;
+  left: 7%;
+  transform: translate(-50%, -50%);
+}
+.clock .number10 {
+  --rotation: 300deg;
+}
+.clock .number11 {
+  --rotation: 330deg;
+}
+
+.clock span {
+  position: absolute;
+  color: rgb(0, 0, 0);
+  padding: 3px 5px;
+  box-shadow: inset 0px 30px 5px 5px rgb(232 228 228);
+  font-size: 20px;
+  font-weight: bolder;
+  font-family: sans-serif;
+  top: 20%;
+  left: 50%;
+  border-radius: 7px;
+  transform: translateX(-50%);
+}
+
+.time-date {
+  position: absolute;
+  width: 100%;
+  top: 58%;
+  left: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  transform: translateX(-50%);
+  justify-content: center;
+  background-color: transparent;
+}
+
+.date-item {
+  letter-spacing: 1px;
+  color: rgb(0, 0, 0);
+  font-size: 20px;
+  border-radius: 7px;
+  padding: 3px 5px;
+  font-family: sans-serif;
+  margin: 3px 5px;
+  box-shadow: inset 0px 30px 5px 5px rgb(232 228 228);
+  width: calc(65px - 10px);
+  text-align: center;
+}
+
+.year {
+  letter-spacing: 1px;
+  color: rgb(0, 0, 0);
+  font-size: 20px;
+  border-radius: 7px;
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  font-family: sans serif;
+  transform: translateX(calc(-50% - 5px));
+  box-shadow: inset 0px 30px 5px 5px rgb(232 228 228);
+  padding: 3px 5px;
+  margin: 3px 5px;
+}
+
+.designer {
+  width: 100%;
+  font-size: 20px;
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  text-align: center;
+  font-family: monospace;
+  transform: translateX(-50%);
+}
+
+.clock-meta {
+  width: 380px;
+  margin-left: 40px;
+  color: wheat;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.clock-wrapper .clock-meta .clock-title {
+  font-size: 30px;
+  font-family: cursive;
+  flex-basis: 100%;
+}
+
+.clock-wrapper .clock-meta .clock-info {
+  font-size: 22px;
+  font-family: sans-serif;
+  line-height: 40px;
+  flex-basis: 100%;
+  margin-bottom: 10px;
+}
+
+.clock-wrapper .clock-meta .clock-info p {
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 25px;
+}
+
+.clock-wrapper .clock-meta .clock-info p i {
+  margin-right: 7px;
+}
+
+.developer {
+  width: 100%;
+  text-align: center;
+  font-size: 25px;
+  font-family: Verdana;
+}
+
+.developer i {
+  margin-right: 10px;
+}
+
+@media (max-width: 947px) {
+  .clock-wrapper {
+    width: 900px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .clock-wrapper .clock {
+    width: 370px;
+    height: 370px;
+    margin-bottom: 40px;
+  }
+
+  .clock-wrapper .clock-meta {
+    width: 400px;
+    margin-left: 0px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .clock-wrapper .clock-meta .clock-title {
+    text-align: center;
+  }
+
+  .clock-wrapper .clock-meta .clock-info {
+    margin-left: 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  .clock-wrapper {
+    width: 100%;
+  }
+
+  .clock-wrapper .clock {
+    margin-bottom: 40px;
+    width: 300px;
+    height: 300px;
+  }
+
+  .designer {
+    top: 28%;
+    font-size: 18px;
+    width: 150px;
+    line-height: 20px;
+  }
+
+  .clock span {
+    font-size: 16px;
+    top: 18%;
+  }
+
+  .clock-wrapper .clock-meta {
+    width: 320px;
+    margin-left: 0px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .clock-wrapper .clock-meta .clock-title {
+    font-size: 25px;
+  }
+
+  .clock-wrapper .clock-meta .clock-info {
+    font-size: 20px;
+  }
+
+  .clock-wrapper .clock-meta .clock-info p {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 25px;
+  }
+
+  .clock-wrapper .clock-meta .clock-info p i {
+    margin-right: 5px;
+  }
+
+  .date-item {
+    letter-spacing: 1px;
+    color: rgb(0, 0, 0);
+    font-size: 18px;
+    border-radius: 7px;
+    padding: 3px 3px;
+    font-family: sans-serif;
+    margin: 0px 2.5px;
+    box-shadow: inset 0px 30px 5px 5px rgb(232 228 228);
+    width: calc(55px - 10px);
+    text-align: center;
+  }
+
+  .date {
+    width: calc(40px - 10px);
+  }
+
+  .year {
+    font-size: 18px;
+  }
+}
